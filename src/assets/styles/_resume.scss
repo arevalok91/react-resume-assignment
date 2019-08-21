@@ -1,0 +1,41 @@
+.Job-component{
+    text-align: center;
+    font-family: $main-font;
+    font-size: 1.1em;
+    color: #333;
+    //display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+.resumeHeader{
+    border-bottom: 2px solid black;
+    text-align: center;
+    font-family: $main-font;
+    font-size: 1.3em;
+    color: rgb(3, 9, 58);
+    text-shadow: 1px 1px 3px rgb(0, 0, 0);
+}
+
+.jobTitle{
+  width: 100%;
+  background: $blue;
+  position: relative;
+  padding: .5em;
+  text-decoration: underline;
+  color:white;
+  text-shadow: 1px 1px $orange;
+  
+}
+
+.myUrl{
+
+  border-bottom: 2px solid black;
+
+  
+ 
+
+}
+
+
+
