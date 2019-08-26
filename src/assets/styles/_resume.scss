@@ -17,8 +17,7 @@
     text-shadow: 1px 1px 3px rgb(0, 0, 0);
 }
 
-.jobTitle{
-  width: 100%;
+.headers{
   background: $blue;
   position: relative;
   padding: .5em;
@@ -29,13 +28,13 @@
 }
 
 .myUrl{
+  border: 1rem solid;
+  border-color: $blue;
 
-  border-bottom: 2px solid black;
 
+  
   
  
 
 }
-
-
 

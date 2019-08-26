@@ -1,47 +1,90 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import ResumeHeader from "../../components/ResumeHeader";
-import Job from "../../components/Job";
 import Jobs from "../../components/Jobs";
+import Educations from "../../components/Educations";
 
 
-const jobData = [
-  {
-    jobTitle:" Software Developer Intern ",
-    company:" Code The Dream",
-    jobStart:"August 19 ,2019",
-    jobEnd:"Present",
-    jobDescription:"Interning at Code The Dream at The FrontierRTP in Durham, NC. Working on real-world developing Projects with a great group of talented people and senior developers. "
-  },
-  {
-    jobTitle:" FreeLancer Designer ",
-    company:"SelfEmployed",
-    jobStart:"Janury 2018",
-    jobEnd:"Present",
-    jobDescription:"1234"
-    
-  },
-  {
-    jobTitle:"Online Marketing",
-    company:"B&L Construction",
-    jobStart:"September 22,2014",
-    jobEnd:"June 23,2019",
-    jobDescription:"1234"
-    
+
+class Resume extends React.Component{
+  constructor(props) {
+  super(props);
+  this.state = {
+    loading: false,
+    jobs:[],
+    educations:[],
+  };
+}
+  componentDidMount() {
+    this.getJobs();
+    this.getEducation();
   }
-]
 
-const Resume = () => (
-  <div className="view-container resume-page">
-    <ResumeHeader />
-    <h2>Jobs</h2>
-    <Jobs jobs={jobData} />
+ 
+  getJobs () {
+    const url = "https://api.airtable.com/v0/appvVlUYy2M2kPc2k/Job%20Section?maxRecords=20&view=Grid%20view"
+    fetch(
+      url,
+      {
+        headers : {Authorization: "Bearer " + process.env.REACT_APP_AIRTABLE_KEY}
+      }
 
-    <h2>Education</h2>
-  </div> 
-
+    )
+    .then(response => response.json())
+  .then(responseData => {
+    console.log ( 'Job Data', responseData)
+    const jobs= responseData.records;
+    this.setState({ jobs:jobs });
+  })
+  };
   
-); 
+  /***** end of jobs */
+
+  getEducation() {
+    const url = "https://api.airtable.com/v0/appvVlUYy2M2kPc2k/Education%20Section?maxRecords=20&view=Grid%20view" 
+    fetch( 
+      url,
+      {
+        headers : { Authorization: "Bearer " + process.env.REACT_APP_AIRTABLE_KEY }
+      }
+    )
+    .then(response => response.json())
+    .then(responseData => {
+      console.log('Education', responseData);
+      const educations = responseData.records;
+      this.setState({ educations:educations }, () => {
+
+      });
+  });
+ }
+
+  //End of Education
+
+   render() {  
+
+    return(
+    
+        <div>
+          <ResumeHeader/>
+
+          
+          <div className="headers">
+            <h2>Jobs</h2></div>
+              <Jobs jobs={this.state.jobs}/>
+            
+      
+          <h2>Education</h2>
+              <Educations educations={this.state.educations}/>
+
+          <h2>Skills</h2> 
+      
+          
+        </div> 
+
+    )
+
+  }
+}
+
 
 
 export default Resume;
