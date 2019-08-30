@@ -1,4 +1,6 @@
 export const HOME = '/';
-export const ABOUT  = '/about';
-export const RESUME  = '/resume';
-export const TICTAC  = '/tictac';
+export const ABOUT = '/about';
+export const RESUME = '/resume';
+export const TICTACTOE = '/tictactoe';
+export const CALCULATOR = '/calculator';
+export const PORTFOLIOPAGE = '/portfoliopage';

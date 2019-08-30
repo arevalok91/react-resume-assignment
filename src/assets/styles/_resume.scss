@@ -17,24 +17,33 @@
     text-shadow: 1px 1px 3px rgb(0, 0, 0);
 }
 
-.headers{
-  background: $blue;
-  position: relative;
-  padding: .5em;
-  text-decoration: underline;
-  color:white;
-  text-shadow: 1px 1px $orange;
-  
+
+/* Social Icons stuff */
+
+a.social{
+  margin: 0 1rem;
+  transition: transfrom 250ms;
+  display: inline-block;
+
 }
 
-.myUrl{
-  border: 1rem solid;
-  border-color: $blue;
+a.social:hover {
+  transform: translateY(-2px);
+}
 
+a.twitter {
+  color: #49a1eb;
+}
 
-  
-  
- 
+a.instagram {
+  color: #C13584;
+}
 
+a.github{
+  color:  black;
+}
+
+a.linkedin{
+  color: #0e76a8 ;
 }
 
