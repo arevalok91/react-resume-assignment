@@ -17,13 +17,34 @@
     text-shadow: 1px 1px 3px rgb(0, 0, 0);
 }
 
+.headers{
+  color: whitesmoke;
+  border:solid black;
+  background: #141e30;
+	background: -webkit-linear-gradient(to bottom, #243b55, #141e30);
+	background: linear-gradient(to bottom, #243b55, #141e30);
+  box-shadow: 5px 5px 5px grey;
+  text-shadow: 2px 2px 4px $orange;
+  
+}
 
+.job{
+  text-decoration: underline;
+  font-size: 25px;
+}
+
+.school{
+  text-decoration: underline;
+  font-size: 25px;
+
+}
 /* Social Icons stuff */
 
 a.social{
   margin: 0 1rem;
   transition: transfrom 250ms;
   display: inline-block;
+  
 
 }
 
@@ -33,6 +54,7 @@ a.social:hover {
 
 a.twitter {
   color: #49a1eb;
+  
 }
 
 a.instagram {

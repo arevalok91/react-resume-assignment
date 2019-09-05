@@ -1,45 +1,49 @@
 .navigation {
-    width: 100%;
-    background: $blue;
-    position: relative;
-    padding: .5em;
+	width: 100%;
+	background: #141e30;
+	background: -webkit-linear-gradient(to bottom, #243b55, #141e30);
+	background: linear-gradient(to bottom, #243b55, #141e30);
+	position: relative;
+	padding: 0.3em;
 
-    .logo-wrapper {
-        width: 150px;
-        top: 10px;
-        left: 10px;
-        position: relative;
-    }
+	.logo-wrapper {
+		width: 100px;
+		top: 10px;
+		left: 10px;
+		position: relative;
+	}
 
-    ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        position: relative;
-        top: -20px;
-        right: 10px;
-    }
-    li {
-        margin: 0 .5em
-    }
+	ul {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		position: relative;
+		top: -20px;
+		right: 10px;
+	}
+	li {
+		margin: 0 0.5em;
+	}
 
-    a {
-        color: white;
-    }
+	a {
+		color: white;
+	}
 }
 
 .nav-content {
-    max-width: $maxWidth;
-    margin: 0 auto;
+	max-width: $maxWidth;
+	margin: 0 auto;
 }
 
 .footer {
-    background: $orange;
-    color: white;
-    height: 50px;
-    margin-top: auto;
+	background: #141e30;
+	background: -webkit-linear-gradient(to left, #243b55, #141e30);
+	background: linear-gradient(to left, #243b55, #141e30);
+	color: white;
+	height: 50px;
+	margin-top: auto;
 }
 
 .footer-content {
-    margin-top:  15px;
+	margin-top: 15px;
 }

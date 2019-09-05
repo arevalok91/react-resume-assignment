@@ -2,6 +2,7 @@ import React from 'react';
 import ResumeHeader from '../../components/ResumeHeader';
 import Jobs from '../../components/Jobs';
 import Educations from '../../components/Educations';
+import Skills from '../../components/Skills';
 
 class Resume extends React.Component {
 	constructor(props) {
@@ -9,12 +10,14 @@ class Resume extends React.Component {
 		this.state = {
 			loading: false,
 			jobs: [],
-			educations: []
+			educations: [],
+			skills: []
 		};
 	}
 	componentDidMount() {
 		this.getJobs();
 		this.getEducation();
+		this.getSkills();
 	}
 
 	getJobs() {
@@ -47,7 +50,23 @@ class Resume extends React.Component {
 			});
 	}
 
-	//End of Education
+	/** End of Education */
+
+	getSkills() {
+		const url =
+		'https://api.airtable.com/v0/appvVlUYy2M2kPc2k/Skill%20Section?maxRecords=3&view=Grid%20view';
+		fetch(url, {
+			headers: { Authorization: 'Bearer ' + process.env.REACT_APP_AIRTABLE_KEY }
+		})
+			.then((response) => response.json())
+			.then((responseData) => {
+				console.log('Skill', responseData);
+				const skills = responseData.records;
+				this.setState({ skills: skills });
+			});
+	}
+
+	//End Skills
 
 	render() {
 		return (
@@ -59,10 +78,15 @@ class Resume extends React.Component {
 				</div>
 				<Jobs jobs={this.state.jobs} />
 
-				<h2>Education</h2>
+				<div className='headers'>
+					<h2>Education</h2>
+				</div>
 				<Educations educations={this.state.educations} />
 
-				<h2>Skills</h2>
+				<div className='headers'>
+					<h2>Skills</h2>
+				</div>
+				<Skills skills={this.state.skills} />
 			</div>
 		);
 	}
